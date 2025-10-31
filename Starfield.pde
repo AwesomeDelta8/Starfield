@@ -1,14 +1,14 @@
-Particle[] parts = new Particle[1500];
+Particle[] parts = new Particle[2000];
 void setup() {
   size(800, 800);
   background(0);
   for (int i = 0; i<parts.length; i++) {
     parts[i] = new Particle();
   }
-  for (int i = 750; i<parts.length; i++) {
+  for (int i = 1000; i<parts.length; i++) {
     parts[i] = new oddBall2();
   }
-  for (int i = 1499; i<parts.length; i++) {
+  for (int i = 1999; i<parts.length; i++) {
     parts[i] = new oddBall();
   }
 }
@@ -18,11 +18,11 @@ void draw() {
   for (int i = 0; i<parts.length; i++) {
     parts[i].move();
     if ((int)(Math.random()*2) == 1) {
-      fill(0);
+      parts[i].setColor(0);
+      fill(parts[i].getColor());
     } else {
       fill(255, 255, 255);
     }
-
     ellipse ((float)parts[i].getX(), (float)parts[i].getY(), parts[i].getSize(), parts[i].getSize());
   }
   if (parts[1499].getX() > 800 || parts[1499].getX() < 0) {
@@ -44,21 +44,23 @@ void draw() {
 
 
 
-
 class Particle {
   private double myX, myY, myAngle, mySpeed;
   private int mySize;
+  private int myColor;
   public Particle() {
     myX = 400;
     myY = 400;
     myAngle = Math.random()*2*Math.PI;
     mySpeed = Math.random()*10;
     mySize = 10;
+    myColor = (int)(Math.random()*256);
   }
   public void move() {
     myX = myX + Math.cos(myAngle) * mySpeed;
     myY = myY + Math.sin(myAngle) * mySpeed;
   }
+
   public double getX() {
     return (float)myX;
   }
@@ -70,6 +72,12 @@ class Particle {
   }
   public void setY(double y) {
     myY = y;
+  }
+  public void setColor(int color) {
+    color = myColor;
+  }
+  public int getColor() {
+    return myColor;
   }
   public int getSize() {
     return mySize;
@@ -85,20 +93,6 @@ class Particle {
   }
 }
 
-
-
-
-
-
-class oddBall extends Particle {
-  oddBall() {
-    setX(200);
-    setY(200);
-    setAngle(Math.random()*2*Math.PI);
-    setSpeed(Math.random()*4);
-    setSize(50);
-  }
-}
 
 
 
