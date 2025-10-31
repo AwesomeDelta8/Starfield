@@ -1,14 +1,14 @@
-Particle[] parts = new Particle[2000];
+Particle[] parts = new Particle[1500];
 void setup() {
   size(800, 800);
   background(0);
   for (int i = 0; i<parts.length; i++) {
     parts[i] = new Particle();
   }
-  for (int i = 1000; i<parts.length; i++) {
+  for (int i = 750; i<parts.length; i++) {
     parts[i] = new oddBall2();
   }
-  for (int i = 1999; i<parts.length; i++) {
+  for (int i = 1499; i<parts.length; i++) {
     parts[i] = new oddBall();
   }
 }
@@ -22,6 +22,7 @@ void draw() {
     } else {
       fill(255, 255, 255);
     }
+
     ellipse ((float)parts[i].getX(), (float)parts[i].getY(), parts[i].getSize(), parts[i].getSize());
   }
   if (parts[1499].getX() > 800 || parts[1499].getX() < 0) {
@@ -38,7 +39,12 @@ void draw() {
   }
 }
 
-//particle.java
+
+
+
+
+
+
 class Particle {
   private double myX, myY, myAngle, mySpeed;
   private int mySize;
@@ -79,7 +85,11 @@ class Particle {
   }
 }
 
-//oddBall.java
+
+
+
+
+
 class oddBall extends Particle {
   oddBall() {
     setX(200);
@@ -90,7 +100,12 @@ class oddBall extends Particle {
   }
 }
 
-//oddBall2.java
+
+
+
+
+
+
   class oddBall2 extends Particle{
   oddBall2(){
     setX(200);
@@ -100,3 +115,5 @@ class oddBall extends Particle {
     setSize(6);
   }
   }
+
+
