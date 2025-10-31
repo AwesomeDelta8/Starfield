@@ -43,7 +43,6 @@ void draw() {
 
 
 
-
 class Particle {
   private double myX, myY, myAngle, mySpeed;
   private int mySize;
@@ -95,9 +94,15 @@ class Particle {
 
 
 
-
-
-
+class oddBall extends Particle {
+  oddBall() {
+    setX(200);
+    setY(200);
+    setAngle(Math.random()*2*Math.PI);
+    setSpeed(Math.random()*4);
+    setSize(50);
+  }
+}
 
 
   class oddBall2 extends Particle{
@@ -109,5 +114,6 @@ class Particle {
     setSize(6);
   }
   }
+
 
 
